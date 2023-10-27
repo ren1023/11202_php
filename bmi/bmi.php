@@ -13,6 +13,9 @@
     <?php
     if (!isset($_GET['bmi'])) {//若bmi這個變數沒有設定。
 
+        if(isset($_GET['m'])){
+            echo "<span style='color:red'>".$_GET['m']."</span>";
+        }
 
 
 
