@@ -58,12 +58,17 @@
     <h2>會員登入</h2>
     <div class="login-block">
         <?php
+        session_start();
+        if (isset($_SESSION['error'])) {
+            echo "<span style='color:red'>" . $_SESSION['error'] . "</span>";//在client端顯示
+            unset($_SESSION['error']);//刪除server端的session
 
-        if (isset($_GET['m'])) {
-            echo "<span style='color:red'>" . $_GET['m'] . "</span>";
         }
-        if(isset($_GET['login'])&&$_GET['login']==1){
-            echo "歡迎你";
+        if(isset($_SESSION['login'])&&$_SESSION['login']){
+            
+            echo $_SESSION['login']."歡迎你";
+            echo "<a href ='logout.php'>登出 </a>";
+
         }else{
           ?>  
         <form action="check.php" method="POST">
