@@ -67,7 +67,7 @@
         if(isset($_SESSION['login'])&& !empty($_SESSION['login'])){
             
             echo $_SESSION['login']."歡迎你";
-            echo "<a href ='logout.php'>登出 </a>";
+            // echo "<a href ='logout.php'>登出 </a>";
 
         }else{
           ?>  
