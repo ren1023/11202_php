@@ -1,3 +1,4 @@
+<?php include_once "session.php";?>
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
 
@@ -55,18 +56,17 @@
 </head>
 
 <body>
-    <h2>會員登入</h2>
+    <?php include_once "header.php";?>
     <div class="login-block">
         <?php
-        date_default_timezone_set("Asia/Taipei");
-        if (isset($_COOKIE['error'])) {
-            echo "<span style='color:red'>" . $_COOKIE['error'] . "</span>";//在client端顯示
-            unset($_COOKIE['error']);//刪除server端的session
+        if (isset($_SESSION['error'])) {
+            echo "<span style='color:red'>" . $_SESSION['error'] . "</span>";//在client端顯示
+            unset($_SESSION['error']);//刪除server端的session
 
         }
-        if(isset($_COOKIE['login'])&&$_COOKIE['login']){
+        if(isset($_SESSION['login'])&& !empty($_SESSION['login'])){
             
-            echo $_COOKIE['login']."歡迎你";
+            echo $_SESSION['login']."歡迎你";
             echo "<a href ='logout.php'>登出 </a>";
 
         }else{
