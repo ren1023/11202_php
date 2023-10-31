@@ -60,10 +60,11 @@
 
         .calendar {
             /* background-color: cadetblue; */
-            width: 90%;
+            width: 95%;
             border-radius: 20px 0px 0px 20px;
             height: 70vh;
             background: linear-gradient(to bottom, #c4620a, #ff9933);
+            /* border: 1px solid black; */
 
         }
 
@@ -77,18 +78,21 @@
             color: wheat;
         }
 
-        .month {
-            width: 60%;
+        .sub_calendar{
+            width:95%;
             display: flex;
-            justify-content: space-between;
-            /* align-items: center; */
+            justify-content: space-around;
             margin: 20px auto;
-            font-size: 25px;
-            /* background-color: lightgreen; */
+            font-size: 20px;
+            /* background-color: red; */
+            align-items: center;
+            margin-top: 60px;
         }
 
         .alink {
             background-color: lightgoldenrodyellow;
+
+            
         }
 
         .tableall {
@@ -116,8 +120,20 @@
             vertical-align: top;
             background-color: lightpink;
             border-radius: 15px;
-            background: linear-gradient(to bottom,  #ff9933, #ffcc99);
+            background: linear-gradient(to bottom, #ff9933, #ffcc99);
+            
+
         }
+
+        td:hover { 
+            background-color: gray;
+         } 
+
+        /* td:hover:nth-child(1),
+        td:hover:nth-child(7) {
+            background-color: red;
+        } */
+
 
         .picture {
             /* background-color: blueviolet; */
@@ -133,6 +149,20 @@
             height: 70vh;
 
         }
+
+        .dateheader{
+            text-align: center;
+            vertical-align: middle;
+            color:red;
+            font-weight:bolder;
+        }
+
+        .datedata{
+            color:red;
+            background: linear-gradient(to bottom,#FF8080, #FFEBB4);
+        }
+
+
     </style>
 </head>
 
@@ -165,7 +195,7 @@
             $weeks = ceil(($thisMonthDays + $thisFirstDate) / 7); //每個月占幾週，也就是i要印幾列
             $firstCell = date("Y-m-d", (strtotime("-$thisFirstDate days", strtotime($thisFirstDay)))); //計算每月第一個欄位是星期幾：月的第一天日期 - 月的第一個是星期幾(若為星期四，就減4天)
             ?>
-            <div>
+            <div class="sub_calendar">
                 <?php
                 $nextYear = $year;
                 $prevYear = $year;
@@ -184,25 +214,21 @@
                     // $prevYear=$year;
                 }
                 ?>
-                <div class="month">
+                <!-- next and last -->
+                <!-- <div class="month"> -->
                     <div class="alink">
                         <a href="?year=<?= $prevYear; ?>&month=<?= $prev; ?>">上一個月</a>
                     </div>
-
-                    <div class="alink">
-                        <a href="?year=<?= $nextYear; ?>&month=<?= $next; ?>">下一個月</a>
-                    </div>
-                </div>
-                <div class="tableall">
+                    <div class="tableall">
                     <table>
-                        <tr >
-                            <td style="text-align: center;vertical-align: middle;color:red;font-weight:bolder">日</td>
-                            <td style="text-align: center;vertical-align: middle;font-weight:bolder">一</td>
-                            <td style="text-align: center;vertical-align: middle;font-weight:bolder">二</td>
-                            <td style="text-align: center;vertical-align: middle;font-weight:bolder">三</td>
-                            <td style="text-align: center;vertical-align: middle;font-weight:bolder">四</td>
-                            <td style="text-align: center;vertical-align: middle;font-weight:bolder">五</td>
-                            <td style="text-align: center;vertical-align: middle;color:red;font-weight:bolder">六</td>
+                        <tr>
+                            <td class="dateheader">日</td>
+                            <td class="dateheader">一</td>
+                            <td class="dateheader">二</td>
+                            <td class="dateheader">三</td>
+                            <td class="dateheader">四</td>
+                            <td class="dateheader">五</td>
+                            <td class="dateheader" >六</td>
                         </tr>
                         <?php
                         for ($i = 0; $i < $weeks; $i++) {
@@ -211,7 +237,7 @@
                                 $addDays = 7 * $i + $j; //第一列的第一天，啟始累加的天數
                                 $thisCellDate = strtotime("+$addDays days", strtotime($firstCell)); //這一天的日期=第一格+累加的天數
                                 if (date('w', $thisCellDate) == 0 || date('w', $thisCellDate) == 6) { //星期天和星期六，印粉紅色
-                                    echo "<td style='color:red;'>";
+                                    echo "<td class='datedata'>";
                                 } else {
                                     echo "<td>";
                                 }
@@ -226,6 +252,13 @@
                         echo "</table>";
                         ?>
                 </div>
+                    <div class="alink">
+                        <a href="?year=<?= $nextYear; ?>&month=<?= $next; ?>">下一個月</a>
+                    </div>
+                <!-- </div> -->
+                <!-- next and last -->
+
+
             </div>
         </div>
         <div class="picture">
