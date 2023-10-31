@@ -76,24 +76,21 @@
             font-size: 30px;
             font-family: Verdana;
             color: wheat;
+            margin-top: 40px;
         }
 
-        .sub_calendar{
-            width:95%;
+        .sub_calendar {
+            width: 95%;
             display: flex;
             justify-content: space-around;
             margin: 20px auto;
             font-size: 20px;
             /* background-color: red; */
             align-items: center;
-            margin-top: 60px;
+            margin-top: 40px;
         }
 
-        .alink {
-            background-color: lightgoldenrodyellow;
 
-            
-        }
 
         .tableall {
             display: flex;
@@ -114,20 +111,37 @@
             height: 70px;
             text-align: center;
             font-family: Verdana;
-            font-size: 20px;
+            /* font-size: 20px; */
             /* text-align-last: auto; */
             text-align: left;
             vertical-align: top;
-            background-color: lightpink;
+            /* background-color: lightpink; */
             border-radius: 15px;
             background: linear-gradient(to bottom, #ff9933, #ffcc99);
-            
+        }
+
+        .datedata:hover,.datedata:active {
+            background-image: url(./coffeebean.jpg);
+            background-size: cover;
+            font-size: 200%;
+            font-weight: bolder;
+            color: brown;
 
         }
 
-        td:hover { 
-            background-color: gray;
-         } 
+
+        .dateheader {
+            text-align: center;
+            vertical-align: middle;
+            color: red;
+            font-weight: bolder;
+        }
+
+        .dateholiday {
+            color: red;
+            background: linear-gradient(to bottom, #FF5B22, #FECDA6);
+        }
+
 
         /* td:hover:nth-child(1),
         td:hover:nth-child(7) {
@@ -150,16 +164,27 @@
 
         }
 
-        .dateheader{
-            text-align: center;
-            vertical-align: middle;
-            color:red;
-            font-weight:bolder;
+        .leftbuttom{
+            
+            width: 60px;
+            height: 60px;
+            background-color: wheat;
+            background-image: url(./left.jpg);
+            background-size: cover;
+            
         }
-
-        .datedata{
-            color:red;
-            background: linear-gradient(to bottom,#FF8080, #FFEBB4);
+        a {
+            display: block;
+            
+        }
+        .rightbuttom{
+            
+            width: 60px;
+            height: 60px;
+            background-color: wheat;
+            background-image: url(./right.jpg);
+            background-size: cover;
+            
         }
 
 
@@ -183,7 +208,7 @@
             }
             echo "<div class='title'>";
             echo "<h3>";
-            echo date("{$year}年{$month}月");
+            echo date("西元{$year}年{$month}月");
             echo "</h3>";
             echo "</div>";
             // $thisMonth = date("$month"); //當月份
@@ -216,10 +241,10 @@
                 ?>
                 <!-- next and last -->
                 <!-- <div class="month"> -->
-                    <div class="alink">
-                        <a href="?year=<?= $prevYear; ?>&month=<?= $prev; ?>">上一個月</a>
-                    </div>
-                    <div class="tableall">
+                <div >
+                    <a class="leftbuttom" href="?year=<?= $prevYear; ?>&month=<?= $prev; ?>"></a>
+                </div>
+                <div class="tableall">
                     <table>
                         <tr>
                             <td class="dateheader">日</td>
@@ -228,7 +253,7 @@
                             <td class="dateheader">三</td>
                             <td class="dateheader">四</td>
                             <td class="dateheader">五</td>
-                            <td class="dateheader" >六</td>
+                            <td class="dateheader">六</td>
                         </tr>
                         <?php
                         for ($i = 0; $i < $weeks; $i++) {
@@ -237,9 +262,9 @@
                                 $addDays = 7 * $i + $j; //第一列的第一天，啟始累加的天數
                                 $thisCellDate = strtotime("+$addDays days", strtotime($firstCell)); //這一天的日期=第一格+累加的天數
                                 if (date('w', $thisCellDate) == 0 || date('w', $thisCellDate) == 6) { //星期天和星期六，印粉紅色
-                                    echo "<td class='datedata'>";
+                                    echo "<td class='dateholiday'>";
                                 } else {
-                                    echo "<td>";
+                                    echo "<td class='datedata'>";
                                 }
                                 // 這個條件是只有在 thisCellDate與當前月份相同時才顯示日期
                                 if (date("m", $thisCellDate) == date("m", strtotime($thisFirstDay))) {
@@ -252,9 +277,9 @@
                         echo "</table>";
                         ?>
                 </div>
-                    <div class="alink">
-                        <a href="?year=<?= $nextYear; ?>&month=<?= $next; ?>">下一個月</a>
-                    </div>
+                <div >
+                    <a class="rightbuttom" href="?year=<?= $nextYear; ?>&month=<?= $next; ?>"></a>
+                </div>
                 <!-- </div> -->
                 <!-- next and last -->
 
