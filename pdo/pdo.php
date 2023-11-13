@@ -2,7 +2,7 @@
 
 // 設置資料庫連接
 $dsn = "mysql:host=127.0.0.1;charset=utf8;dbname=school";
-$pdo = new PDO($dsn, 'root', ''); // 使用 PDO 創建資料庫連接
+$pdo = new PDO($dsn, 'root',''); // 使用 PDO 創建資料庫連接
 
 // 準備 SQL 查詢語句
 $sql = "select * from `students`";
