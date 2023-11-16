@@ -29,13 +29,13 @@
                       echo "</span>";
                     }
                     ?>
-                    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">請登入</h5>
+                    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;"> 請登入 </h5>
                     <div class="form-outline mb-4">
-                      <label class="form-label" for="">帳號：</label>
+                      <label class="form-label" for=""> 帳號：</label>
                       <input type="text" name='acc' id="acc" class="form-control form-control-lg" />
                     </div>
                     <div class="form-outline mb-4">
-                      <label class="form-label" for="">密碼：</label>
+                      <label class="form-label" for=""> 密碼：</label>
                       <input type="text" name="pw" id="pw" class="form-control form-control-lg" />
 
                     </div>
