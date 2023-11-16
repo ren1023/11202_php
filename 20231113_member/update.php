@@ -11,7 +11,7 @@ $sql = "update `users` set `pw`='{$_POST['pw']}',`name`='{$_POST['name']}',`emai
                     
 
 // 將新增資料，到資料表
-// $sql="update `dept` set `code`= '901', `name`='演藝科' where `id`='9';";
+// $sql="update`dept`set`code`= '901',`name`=' 演藝科 ' where`id`='9';";
 
 $result=$pdo-> exec($sql);
 echo "$result";

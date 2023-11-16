@@ -11,6 +11,10 @@ $sql="select * from users where `acc`='$acc' && `pw`='$pw'";
 // $user=$pdo-> query($sql)->fetch();
 $user=$pdo->query($sql)->fetchColumn();
 
+
+// echo $user=$pdo->query($sql)->fetchColumn();//for debug
+// exit();//for degup
+
 // if($user['acc']== $acc && $user['pw']==$pw){
     if ($user){
    
@@ -19,6 +23,6 @@ $user=$pdo->query($sql)->fetchColumn();
     
 
 }else{
-    header('location:./login_form.php?error=帳號密碼錯誤');
+    header ('location:./login_form.php?error = 帳號密碼錯誤 ');
 }
 ?>

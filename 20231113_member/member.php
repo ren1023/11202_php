@@ -66,7 +66,7 @@
             </div>
             <div class="input-group my-1">
                 <label class="col-4 input-group-text">居住地：</label>
-                <input class="form-control" type="text" name="address" id="address" value="<?php echo $user['address']  ;?>">
+                <input class="form-control" type="text" name="address" id="address" value="<?php echo $user['address'];?>">
             </div>
             <div >
                 
