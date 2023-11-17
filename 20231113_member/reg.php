@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,11 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
-
 </head>
-
-
-
 <body>
     <div id=app class="container border rounded border-dark mt-5 ">
         <h2 class="mt-5 mb-2 text-center text-decoration-underline"> 會員註冊 </h2>
@@ -32,30 +27,23 @@
                         <input class="form-control" type="password" name="pw" id="pw">
                     </div>
                 </div>
-
             </div>
-
             <div class="row">
                 <div class="col-lg-12 col-ms-12">
                     <div class=" mb-3">
                         <label for="name" class="form-label"> 姓名：</label>
                         <input class="form-control" type="text" name="name" id="name">
                     </div>
-
                 </div>
             </div>
-
-
             <div class="row">
                 <div class="col-lg-12 col-ms-12">
                     <div class=" mb-3">
                         <label for="email" class="form-label"> 電子郵件：</label>
                         <input class="form-control" type="text" name="email" id="email">
                     </div>
-
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-lg-12 col-ms-12">
                     <div class="mb-3">
@@ -64,8 +52,6 @@
                     </div>
                 </div>
             </div>
-
-
             <div class="row mb-5">
                 <div class="col-lg-6 col-ms-12">
                     <div class="gap-5">
@@ -75,13 +61,7 @@
                     </div>
                 </div>
             </div>
-
-
-
-
-
         </form>
 </body>
 </div>
-
 </html>
