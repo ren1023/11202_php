@@ -1,10 +1,10 @@
 <?php
-session_start();
+include_once "../20231113_member/include/connect.php";
+
 $acc=$_POST['acc'];
 $pw=$_POST['pw'];
 
-$dsn="mysql:host=localhost;charset=utf8;dbname=member";
-$pdo=new PDO($dsn,'root','');
+
 
 $sql="select * from users where `acc`='$acc' && `pw`='$pw'";
 

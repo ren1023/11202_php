@@ -1,29 +1,44 @@
 <?php
-$dsn="mysql:host=localhost;charset=utf8;dbname=member";
-$pdo=new PDO($dsn,'root','');
+
+include_once "../20231113_member/include/connect.php";
 // 使用 trim 函數刪除用戶輸入數據的開頭和結尾的空格（以確保數據的一致性）
 // 使用 htmlspecialchars 函數對用戶輸入數據進行 HTML 轉義，以防止跨站腳本攻擊（XSS 攻擊）
 $acc=htmlspecialchars(trim($_POST['acc']));
 
 
 
-$sql = "update `users` set `pw`='{$_POST['pw']}',`name`='{$_POST['name']}',`email`='{$_POST['email']}',`address`='{$_POST['address']}' where `acc`='{$_POST['acc']}'";
+$sql = "update `users` set 
+                        `acc`='{$_POST['acc']}',
+                        `pw`='{$_POST['pw']}',
+                        `name`='{$_POST['name']}',
+                        `email`='{$_POST['email']}',
+                        `address`='{$_POST['address']}' 
+        where `id`='{$_POST['id']}'";
                     
 
-// 將新增資料，到資料表
+// 將更新的資料，到資料表
 // $sql="update`dept`set`code`= '901',`name`=' 演藝科 ' where`id`='9';";
 
 $result=$pdo-> exec($sql);
-echo "$result";
+// echo "$result";
+// exit();
 
 
-if($result==1){
-    header("Location:./index.php");
-    echo "更新成功";
-exit();
-
+if($result>0){
+    $_SESSION ['msg']="更新成功";
 }else{
-    echo "請確認資料後，再重新送出";
-    header("Location:update.php");
-}
+    $_SESSION ['msg']="資料無異動";
+};
+
+header("location:./member.php");
+
+// if($result>0){
+//     header("Location:./index.php");
+//     echo "更新成功";
+
+
+// }else{
+//     echo "請確認資料後，再重新送出";
+//     header("Location:update.php");
+// }
 ?>
