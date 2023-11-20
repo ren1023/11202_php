@@ -48,13 +48,13 @@ function total($table, $id)
     } else if (is_numeric($id)) {
         $sql .= " where `id`='$id'";
     } else {
-        echo "錯誤：參數的資料型態必須是數字或陣列";
+        echo "錯誤：參數的資料型態比須是數字或陣列";
     }
     //echo 'find=>'.$sql;
-    // $row = $pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
     $row = $pdo->query($sql)->fetchColumn();
     return $row;
 }
+
 
 
 

@@ -6,7 +6,7 @@ $pw=$_POST['pw'];
 
 // $sql="select count(*) from users where `acc`='$acc' && `pw`='$pw'";
 
-$res=total('users',['acc'=>$acc,'pw'=>$pw]);
+$res=total('users',[`acc`=>$acc,`pw`=>$pw]);
 
 // $user=$pdo-> query($sql)->fetch();
 // $user=$pdo->query($sql)->fetchColumn();
@@ -16,7 +16,7 @@ $res=total('users',['acc'=>$acc,'pw'=>$pw]);
 // exit();//for degup
 
 // if($user['acc']== $acc && $user['pw']==$pw){
-    if ($user){
+    if ($res){
    
     $_SESSION['user']=$acc;
     header("location:../index.php");    
