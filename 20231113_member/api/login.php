@@ -1,15 +1,15 @@
 <?php
-include_once "../20231113_member/include/connect.php";
+include_once "../include/connect.php";
 
 $acc=$_POST['acc'];
 $pw=$_POST['pw'];
 
+// $sql="select count(*) from users where `acc`='$acc' && `pw`='$pw'";
 
-
-$sql="select * from users where `acc`='$acc' && `pw`='$pw'";
+$res=total('users',['acc'=>$acc,'pw'=>$pw]);
 
 // $user=$pdo-> query($sql)->fetch();
-$user=$pdo->query($sql)->fetchColumn();
+// $user=$pdo->query($sql)->fetchColumn();
 
 
 // echo $user=$pdo->query($sql)->fetchColumn();//for debug
@@ -19,10 +19,11 @@ $user=$pdo->query($sql)->fetchColumn();
     if ($user){
    
     $_SESSION['user']=$acc;
-    header("location:./index.php");
+    header("location:../index.php");
+   
     
 
 }else{
-    header ('location:./login_form.php?error = 帳號密碼錯誤 ');
+    header ('location:../login_form.php?error = 帳號密碼錯誤 ');
 }
 ?>

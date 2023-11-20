@@ -13,7 +13,7 @@
 <body>
     <div id=app class="container border rounded border-dark mt-5 ">
         <h2 class="mt-5 mb-2 text-center text-decoration-underline"> 會員註冊 </h2>
-        <form action="./add_user.php" method="post">
+        <form action="./api/add_user.php" method="post">
             <div class="row">
                 <div class="col-lg-6 col-ms-12">
                     <div class="mb-3">
