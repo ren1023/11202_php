@@ -10,11 +10,11 @@ $acc=htmlspecialchars(trim($_POST['acc']));
 //                      values('{$acc}','{$_POST['pw']}','{$_POST['name']}','{$_POST['email']}','{$_POST['address']}')";
 // $pdo-> exec($sql);
 
-insert("users",[`acc`=> "{$acc}",
-`pw`=>"{$_POST['pw']}",
-`name`=> "{$_POST['name']}",
-`email` => "{$_POST['email']}",
-`address` => "{$_POST['address']}"]);
+insert("users",['acc'=> "{$acc}",
+'pw'=>"{$_POST['pw']}",
+'name'=> "{$_POST['name']}",
+'email' => "{$_POST['email']}",
+'address' => "{$_POST['address']}"]);
 
 
 header("Location:../index.php");

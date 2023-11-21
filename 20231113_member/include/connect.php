@@ -38,7 +38,7 @@ function all($table = null, $where = '', $other = '')
 function total($table, $id)
 {
     global $pdo;
-    $sql = "select count(`id`) from `$table` ";
+    $sql = "select count(id) from `$table` ";
 
     if (is_array($id)) {
         foreach ($id as $col => $value) {

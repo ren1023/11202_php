@@ -6,8 +6,7 @@ $pw=$_POST['pw'];
 
 // $sql="select count(*) from users where `acc`='$acc' && `pw`='$pw'";
 
-$res=total('users',[`acc`=>$acc,`pw`=>$pw]);
-
+$res=total('users',['acc'=>$acc,'pw'=>$pw]);
 // $user=$pdo-> query($sql)->fetch();
 // $user=$pdo->query($sql)->fetchColumn();
 

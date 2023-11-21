@@ -15,11 +15,11 @@ $acc=htmlspecialchars(trim($_POST['acc']));
 //                         `address`='{$_POST['address']}' 
 //         where `id`='{$_POST['id']}'";
                     
-update(`users`,"{$_POST['id']}",[`acc`=>"{$_POST['acc']}",
-                        `pw`=>"{$_POST['pw']}",
-                        `name`=>"{$_POST['name']}",
-                        `email`=>"{$_POST['email']}",
-                        `address`=>"{$_POST['address']}"
+update('users',"{$_POST['id']}",['acc'=>"{$_POST['acc']}",
+                        'pw'=>"{$_POST['pw']}",
+                        'name'=>"{$_POST['name']}",
+                        'email'=>"{$_POST['email']}",
+                        'address'=>"{$_POST['address']}"
     
 ]);
 
